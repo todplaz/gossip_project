@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-body">
+        <h5> La ville de <%=@user_city%></h5>
+            </br>
+        <p> Voici les derniers raggots de cette charmante bourgade: </p>
+    </div>
+</div>
+
+<div class="card-columns">
+    <% City.count.times do |i| %>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><%= City.find(i+1).name %></h5>
+                <h5 class="card-title"><%= Gossip.find(i+1).title %></h5>
+            </div>
+        </div>        
+    <% end %>
+</div>
+
+    

@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-body">
+
+    <h5>L'auteur est <%= @author_info.first_name%> <%=@author_info.last_name%>, <%= @author_info.age%> ans</h5>
+    <p> et vient de : <%= link_to "#{@user_city}", city_path%></p>
+    </br>
+    
+    <p>email:<%= @author_info.email%></p></br>
+    <p> <U>Description:</U> </p>
+    <p><%= @author_info.description%></p>
+
+  </div>
+</div>

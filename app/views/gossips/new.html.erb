@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+  
+    <h1>Racontes moi un nouveau potin!</h1>
+    <p>Ne t'inquites pas... ça reste entre nous ;)</p>
+    </br>
+
+    <%= form_tag gossips_path(action: "create"), method: "post" do %>
+
+        <%= label_tag "titre:" %> </br>
+        <%= text_field_tag "title", @title %>
+        <br /> <br />
+
+        <%= label_tag "choisi un numéro de tag entre 1 et 10:" %> </br>
+        <%= text_field_tag "tag", @tag %>
+        <br /> <br />
+
+        <%= label_tag "contenu du potin:" %> </br>
+        <%= text_area_tag "content", @content %>
+        <br /> <br />
+
+        <%= submit_tag "Créer un potin" %>
+        
+    <% end %>
+
+        </br>
+
+        <% if @post.errors.any? %>
+            <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+            <ul>
+            <% @post.errors.full_messages.each do |message| %>
+                <div class="alert alert-danger" role="alert">
+                <li><%= message %></li>
+                </div>
+        <% end %>
+            </ul>
+
+    <% end %>
+   
+  </div>
+</div>

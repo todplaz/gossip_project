@@ -1,0 +1,21 @@
+<div class="jumbotron text-center">
+    <h1 class="display-4">Bienvenue sur The Gossip Project!</h1>
+    <p class="lead">Messagerie et raggots à gogo pour tous les zozos!</p>
+    <hr class="my-4">
+    <p class="lead">
+    <%= link_to "As tu un nouveau potin à raconter?", new_gossip_path, class:"btn btn-primary btn-lg" %>
+    </p>
+</div>
+
+<div class="card-columns">
+    <% Gossip.count.times do |i| %>
+    
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title"><%= link_to "#{Gossip.find(i+1).user.first_name}", user_path(Gossip.find(i+1))%></h5>
+            <p class="card-text"><%= Gossip.find(i+1).title %></p>
+            <%= link_to "voir le potin", gossip_path(Gossip.find(i+1).id), class:"card-link" %>
+            </div>
+        </div>        
+    <% end %>
+</div>
